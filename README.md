@@ -1,11 +1,12 @@
-测试smtp客户端
+SolrPhpClient rebuild layout as psr-0 mode
 
-   Project copy from http://code.google.com/p/solr-php-client/downloads/list
-   Source file from SolrPhpClient.r60.2011-05-04.zip
-   At 2014年09月17日 星期三 13时10分06秒
-   importance: 非本人原创作品。
-   importance: 纯属一时兴起。
-   importance: 原项目地址: http://code.google.com/p/solr-php-client
+   Project copy from http://code.google.com/p/solr-php-client/downloads/list 
+   Source file from SolrPhpClient.r60.2011-05-04.zip 
+   At 2014年09月17日 星期三 13时10分06秒 
+   
+     importance: 非本人原创作品。
+     importance: 纯属一时兴起。
+     importance: 原项目地址: http://code.google.com/p/solr-php-client
    
     1. using namespace to replace 'require_once()'
     2. locate at Apache\Solr
