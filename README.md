@@ -45,7 +45,7 @@ SolrPhpClient rebuild layout as psr-0 mode
     How to use in composer autoloader?
         1. copy apache to vendor
         2. add 
-                'Apache' => array($vendorDir . '/apache/library'),
+                'Apache' => array($vendorDir . '/solrPhpCliebtAsPsr0Mode/library'),
             to vendor/composer/autoload_namespaces.php
             
     How to use in project
