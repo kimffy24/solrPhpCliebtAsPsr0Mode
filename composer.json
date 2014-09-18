@@ -13,7 +13,7 @@
         },
     "autoload": {
         "psr-0": {
-            "Apache\\Solr\\": "library/Apache/Solr"
+            "Apache\\Solr\\": "library"
         }
     }
 }
