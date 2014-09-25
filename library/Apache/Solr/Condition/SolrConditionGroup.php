@@ -24,11 +24,14 @@ class SolrConditionGroup implements SolrConditionInterface {
 		switch($relationship){
 			case SolrCondition::BOOLEAN_QUERY_NOT:
 				$this->_conditionListNot[] = $cond->toString();
+				break;
 			case SolrCondition::BOOLEAN_QUERY_OR:
 				$this->_conditionListOr[] = $cond->toString();
+				break;
 			default:
 			case SolrCondition::BOOLEAN_QUERY_AND:
 				$this->_conditionListAnd[] = $cond->toString();
+				break;
 		}
 		return $this;
 	}
