@@ -1,3 +1,7 @@
+2014-09-25 14:05  Jiefzz Lon
+	* add Apache/Solr/Condition:some useful classes.
+	  Some Condition classes 
+
 2011-02-08 20:38  donovan.jimenez
 
 	* Apache/Solr/Service.php, tests/Apache/Solr/ServiceTest.php: See
