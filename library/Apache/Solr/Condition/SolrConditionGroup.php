@@ -22,13 +22,13 @@ class SolrConditionGroup implements SolrConditionInterface {
 		if(($cond instanceof SolrConditionGroup) or method_exists($cond, 'setTopLevel'))
 			$cond->setTopLevel(false);
 		switch($relationship){
-			case SolrCondition::BOOLEAN_QUERY_AND:
-				$this->_conditionListAnd[] = $cond->toString();
 			case SolrCondition::BOOLEAN_QUERY_NOT:
 				$this->_conditionListNot[] = $cond->toString();
 			case SolrCondition::BOOLEAN_QUERY_OR:
-			default:
 				$this->_conditionListOr[] = $cond->toString();
+			default:
+			case SolrCondition::BOOLEAN_QUERY_AND:
+				$this->_conditionListAnd[] = $cond->toString();
 		}
 		return $this;
 	}
