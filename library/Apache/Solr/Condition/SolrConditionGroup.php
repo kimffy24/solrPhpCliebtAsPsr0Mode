@@ -67,6 +67,9 @@ class SolrConditionGroup implements SolrConditionInterface {
 	public function setTopLevel( $para ){
 		$this->_topLevel = $para ;
 	}
+	public function __invoke(){
+		return $this->toString();
+	}
 	private function link(array &$arr, $linker = 'OR'){
 		return implode(' '.$linker.' ', $arr);
 	}
