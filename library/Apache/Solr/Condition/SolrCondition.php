@@ -1,8 +1,18 @@
 <?php
+/**
+ * 
+ * @author Jiefzz Lon
+ *
+ */
 namespace Apache\Solr\Condition;
 
 use Apache\Solr\Exception as SolrException;
 
+/**
+ * Solr查询基础类
+ * @author Jiefzz Lon
+ *
+ */
 class SolrCondition implements SolrConditionInterface {
 	const BOOLEAN_QUERY_AND = 1;
 	const BOOLEAN_QUERY_OR = 2;
@@ -19,6 +29,12 @@ class SolrCondition implements SolrConditionInterface {
 		} else
 			$this->addCondition ( func_get_arg ( 0 ), func_get_arg ( 1 ) ? func_get_arg ( 1 ) : null, func_get_arg ( 2 ) ? func_get_arg ( 2 ) : null, func_get_arg ( 3 ) ? func_get_arg ( 3 ) : null, func_get_arg ( 4 ) ? func_get_arg ( 4 ) : null, func_get_arg ( 5 ) ? func_get_arg ( 5 ) : null, func_get_arg ( 6 ) ? func_get_arg ( 6 ) : null );
 	}
+
+	/**
+	 * 返回Solr查询串
+	 * @return String SolrConditionString
+	 * @see \Apache\Solr\Condition\SolrConditionInterface::toString()
+	 */
 	public function toString() {
 		if ($this->_conditionBuild or ! $this->_term)
 			return $this->_queryString;
@@ -188,6 +204,12 @@ class SolrCondition implements SolrConditionInterface {
 		return $this->toString();
 	}
 	
+	/**
+	 * 构造工厂<br />
+	 * 仅仅接受数组构建
+	 * @param array $conditionArray
+	 * @return \Apache\Solr\Condition\SolrCondition
+	 */
 	public static function add(array $conditionArray){
 		return new SolrCondition($conditionArray);
 	}

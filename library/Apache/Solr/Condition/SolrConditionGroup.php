@@ -1,7 +1,18 @@
 <?php
+/**
+ * 组合对象Condition
+ * 
+ * @author Jiefzz Lon
+ *
+ */
 
 namespace Apache\Solr\Condition;
 
+/**
+ * SolrCondition 聚合类，提供Solr多条件的链接方法，生成子查询命令等等
+ * @author Jiefzz Lon
+ *
+ */
 class SolrConditionGroup implements SolrConditionInterface {
 	private $_topLevel = true;
 	private $_conditionListAnd = array ();
@@ -18,6 +29,13 @@ class SolrConditionGroup implements SolrConditionInterface {
 			SolrCondition::BOOLEAN_QUERY_NOT => 'NOT' 
 	);
 	
+	/**
+	 * 连接一个SolrCondition|SolrConditionGroup类，并指定链接方式<br />
+	 * 返回对象本身
+	 * @param SolrConditionInterface $cond
+	 * @param enum SolrCondition::BOOLEAN_QUERY_NOT|SolrCondition::BOOLEAN_QUERY_OR|SolrCondition::BOOLEAN_QUERY_AND|0
+	 * @return \Apache\Solr\Condition\SolrConditionGroup
+	 */
 	public function add(SolrConditionInterface $cond, $relationship = 0) {
 		if(($cond instanceof SolrConditionGroup) or method_exists($cond, 'setTopLevel'))
 			$cond->setTopLevel(false);
@@ -35,6 +53,11 @@ class SolrConditionGroup implements SolrConditionInterface {
 		}
 		return $this;
 	}
+	/**
+	 * 返回Solr查询串
+	 * @return String SolrConditionString
+	 * @see \Apache\Solr\Condition\SolrConditionInterface::toString()
+	 */
 	public function toString() {
 		$finnalCondition = array();
 		if(count($this->_conditionListAnd))
@@ -64,9 +87,17 @@ class SolrConditionGroup implements SolrConditionInterface {
 		$this->_topLevel = true;
 		return $lastResult;
 	}
+	/**
+	 * 声明构造子查询域
+	 * @param boolean $para
+	 */
 	public function setTopLevel( $para ){
 		$this->_topLevel = $para ;
 	}
+	/**
+	 * (non-PHPdoc)
+	 * @see \Apache\Solr\Condition\SolrConditionInterface::__invoke()
+	 */
 	public function __invoke(){
 		return $this->toString();
 	}

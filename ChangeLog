@@ -1,3 +1,8 @@
+2014-09-26 11:31  Jiefzz Lon
+	* Apache/Solr/Condition:add toString on 
+	  Condition\SolrConditionInterface, except it will return solr
+	  query string
+	  
 2014-09-25 14:05  Jiefzz Lon
 	* add Apache/Solr/Condition:some useful classes.
 	  Some Condition classes 
