@@ -702,8 +702,15 @@ class Service
 		
 		$commitWithin = (int) $commitWithin;
 		$commitWithinString = $commitWithin > 0 ? " commitWithin=\"{$commitWithin}\"" : '';
+
+		// <<<<<<
+		//参考solr admin界面 xml的attribute有所变更
+		// $rawPost = "<add allowDups=\"{$dupValue}\" overwritePending=\"{$pendingValue}\" overwriteCommitted=\"{$committedValue}\"{$commitWithinString}>";
+		// <<<<<<
+		// >>>>>>
+		$rawPost = "<add overwrite=\"true\"{$commitWithinString}>";
+		// >>>>>>
 		
-		$rawPost = "<add allowDups=\"{$dupValue}\" overwritePending=\"{$pendingValue}\" overwriteCommitted=\"{$committedValue}\"{$commitWithinString}>";
 		$rawPost .= $this->_documentToXmlFragment($document);
 		$rawPost .= '</add>';
 
@@ -731,7 +738,13 @@ class Service
 		$commitWithin = (int) $commitWithin;
 		$commitWithinString = $commitWithin > 0 ? " commitWithin=\"{$commitWithin}\"" : '';
 
-		$rawPost = "<add allowDups=\"{$dupValue}\" overwritePending=\"{$pendingValue}\" overwriteCommitted=\"{$committedValue}\"{$commitWithinString}>";
+		// <<<<<<
+		//参考solr admin界面 xml的attribute有所变更
+		// $rawPost = "<add allowDups=\"{$dupValue}\" overwritePending=\"{$pendingValue}\" overwriteCommitted=\"{$committedValue}\"{$commitWithinString}>";
+		// <<<<<<
+		// >>>>>>
+		$rawPost = "<add overwrite=\"true\"{$commitWithinString}>";
+		// >>>>>>
 
 		foreach ($documents as $document)
 		{
