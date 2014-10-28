@@ -694,7 +694,7 @@ class Service
 	 *
 	 * @throws HttpTransportException If an error occurs during the service call
 	 */
-	public function addDocument(Document $document, $allowDups = false, $overwritePending = true, $overwriteCommitted = true, $commitWithin = 0)
+	public function addDocument(Document $document, $allowDups = false, $overwritePending = true, $overwriteCommitted = true, $commitWithin = 1000)
 	{
 		$dupValue = $allowDups ? 'true' : 'false';
 		$pendingValue = $overwritePending ? 'true' : 'false';
@@ -729,7 +729,7 @@ class Service
 	 *
 	 * @throws HttpTransportException If an error occurs during the service call
 	 */
-	public function addDocuments($documents, $allowDups = false, $overwritePending = true, $overwriteCommitted = true, $commitWithin = 0)
+	public function addDocuments($documents, $allowDups = false, $overwritePending = true, $overwriteCommitted = true, $commitWithin = 1000)
 	{
 		$dupValue = $allowDups ? 'true' : 'false';
 		$pendingValue = $overwritePending ? 'true' : 'false';
