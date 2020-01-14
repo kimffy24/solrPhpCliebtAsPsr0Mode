@@ -1,3 +1,6 @@
+# (Deprecate)
+note: 不再维护，我也不再搞php了，留作参考
+
 SolrPhpClient rebuild layout as psr-0 mode
 
    Project copy from http://code.google.com/p/solr-php-client/downloads/list 
